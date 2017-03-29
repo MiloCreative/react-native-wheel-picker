@@ -49,7 +49,6 @@ export default class App extends Component {
             <DatePicker
               mode="datetime"
               onDateChange={ (datetime) => this.setState({datetime}) }
-              labelUnit={{ year: 'Y', month: 'M', day: 'D' }}
             />
 
             <View style={styles.separator} />

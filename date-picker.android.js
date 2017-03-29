@@ -34,23 +34,18 @@ export default class DatePicker extends Component {
     let maxYear = this.props.maximumDate.getFullYear()
     if ((maxYear - minYear) >= 1) {
       this.state.yearRange = _.map(_.range(minYear, maxYear + 1), (n) => {
-        return { value: n, label: `${n}${this.props.labelUnit.year}` }
+        return { value: n, label: `${n}` }
       })
     } else {
-      this.state.yearRange = [ { value: minYear, label: `${minYear}${this.props.labelUnit.year}` } ]
+      this.state.yearRange = [ { value: minYear, label: `${minYear}` } ]
     }
 
     // 生成月份范围
     this.state.monthRange = _.times(12, (n) => {
-      return { value: n + 1, label: `${n + 1}${this.props.labelUnit.month}` }
+      return { value: n + 1, label: `${n + 1}` }
     })
   }
   static propTypes = {
-    labelUnit: React.PropTypes.shape({
-      year: React.PropTypes.string,
-      month: React.PropTypes.string,
-      day: React.PropTypes.string
-    }),
     date: React.PropTypes.instanceOf(Date).isRequired,
     maximumDate: React.PropTypes.instanceOf(Date),
     minimumDate: React.PropTypes.instanceOf(Date),
@@ -58,7 +53,6 @@ export default class DatePicker extends Component {
     onDateChange: React.PropTypes.func
   }
   static defaultProps = {
-    labelUnit: { year: '年', month: '月', day: '日' },
     mode: 'date',
     maximumDate: moment().add( 10, 'years' ).toDate(),
     minimumDate: moment().add( -10, 'years' ).toDate(),
@@ -220,7 +214,7 @@ export default class DatePicker extends Component {
   }
   _genDateRange(dayNum) {     // 生成日期范围
     return _.times(dayNum, (n) => {
-      return { value: n + 1, label: `${n + 1}${this.props.labelUnit.day}` }
+      return { value: n + 1, label: `${n + 1}` }
     })
   }
 
