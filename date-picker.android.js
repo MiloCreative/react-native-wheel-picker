@@ -13,6 +13,8 @@ const styles = {
 }
 
 const dayNumOfMonth = [ 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 ]    // 各个月份的天数
+const monthsOfYear = ['January', 'February', 'March', 'April',
+'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
 export default class DatePicker extends Component {
   constructor(props) {
     super(props)
@@ -42,7 +44,8 @@ export default class DatePicker extends Component {
 
     // 生成月份范围
     this.state.monthRange = _.times(12, (n) => {
-      return { value: n + 1, label: `${n + 1}` }
+      const month = monthsOfYear[n];
+      return { value: n + 1, label: `${month}` }
     })
   }
   static propTypes = {
