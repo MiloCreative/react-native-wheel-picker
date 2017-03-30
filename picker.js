@@ -7,11 +7,11 @@ import _ from 'lodash'
 
 const styles = {
   picker: {
-    backgroundColor: '#d3d3d3',
+    backgroundColor: '#272C32',
     height: 220
   },
   picker__item: {
-    color: '#333333',
+    color: '#ffffff',
     fontSize: 26
   }
 }
